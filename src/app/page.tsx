@@ -89,18 +89,18 @@ export default function Home() {
 
       <section
         id="inicio"
-        className="relative z-10 flex flex-1 flex-col items-center justify-center overflow-hidden px-6 py-24 text-center sm:px-12"
+        className="relative z-10 flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6 py-24 text-center sm:px-12"
       >
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-75"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-black/50" />
+        <div className="absolute inset-0 -z-10 bg-black/40" />
 
         <span className="mb-4 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-gray-300 backdrop-blur-sm">
           Marketing impulsado por datos
