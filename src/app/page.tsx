@@ -70,20 +70,6 @@ export default function Home() {
           Zenta te ayuda a planear y controlar tus campañas de marketing en un
           solo lugar, accesible desde cualquier dispositivo.
         </p>
-        <div className="mt-9 flex gap-4">
-          <Link
-            href="/register"
-            className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-xl shadow-black/20 transition-transform hover:scale-[1.03]"
-          >
-            Empezar gratis
-          </Link>
-          <Link
-            href="/login"
-            className="rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
-          >
-            Ya tengo cuenta
-          </Link>
-        </div>
       </section>
 
       <section
