@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X, ShieldCheck } from "lucide-react";
+import { Check, X, ShieldCheck, Shield } from "lucide-react";
 
 type UserRow = {
   id: string;
@@ -88,27 +88,51 @@ export default function UsersTable({
                 <td className="px-5 py-4">
                   <div className="flex justify-end gap-2">
                     {!isMe && (
-                      <button
-                        disabled={pendingId === u.id}
-                        onClick={() => updateUser(u.id, { approved: !u.approved })}
-                        className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors disabled:opacity-50 ${
-                          u.approved
-                            ? "border border-gray-700 text-gray-300 hover:bg-gray-800"
-                            : "bg-blue-600 text-white hover:bg-blue-700"
-                        }`}
-                      >
-                        {u.approved ? (
-                          <>
-                            <X className="h-3.5 w-3.5" />
-                            Quitar acceso
-                          </>
-                        ) : (
-                          <>
-                            <Check className="h-3.5 w-3.5" />
-                            Dar acceso
-                          </>
-                        )}
-                      </button>
+                      <>
+                        <button
+                          disabled={pendingId === u.id}
+                          onClick={() =>
+                            updateUser(u.id, {
+                              role: u.role === "admin" ? "member" : "admin",
+                            })
+                          }
+                          className="flex items-center gap-1 rounded-lg border border-gray-700 px-3 py-1.5 text-xs font-semibold text-gray-300 transition-colors hover:bg-gray-800 disabled:opacity-50"
+                        >
+                          {u.role === "admin" ? (
+                            <>
+                              <Shield className="h-3.5 w-3.5" />
+                              Hacer miembro
+                            </>
+                          ) : (
+                            <>
+                              <ShieldCheck className="h-3.5 w-3.5" />
+                              Hacer admin
+                            </>
+                          )}
+                        </button>
+
+                        <button
+                          disabled={pendingId === u.id}
+                          onClick={() => updateUser(u.id, { approved: !u.approved })}
+                          className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors disabled:opacity-50 ${
+                            u.approved
+                              ? "border border-gray-700 text-gray-300 hover:bg-gray-800"
+                              : "bg-blue-600 text-white hover:bg-blue-700"
+                          }`}
+                        >
+                          {u.approved ? (
+                            <>
+                              <X className="h-3.5 w-3.5" />
+                              Quitar acceso
+                            </>
+                          ) : (
+                            <>
+                              <Check className="h-3.5 w-3.5" />
+                              Dar acceso
+                            </>
+                          )}
+                        </button>
+                      </>
                     )}
                   </div>
                 </td>
