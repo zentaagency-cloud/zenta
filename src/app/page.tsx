@@ -120,12 +120,12 @@ export default function Home() {
 
       <section
         id="funciones"
-        className="relative z-10 grid gap-6 px-6 py-16 sm:grid-cols-2 sm:px-12"
+        className="relative z-10 mx-auto grid max-w-4xl gap-6 px-6 py-16 sm:grid-cols-2 sm:px-12"
       >
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="relative overflow-hidden rounded-2xl border border-gray-800 bg-black p-10 text-center transition-transform hover:-translate-y-1 hover:border-gray-700"
+            className="relative flex min-h-[260px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-800 bg-black p-8 text-center transition-transform hover:-translate-y-1 hover:border-gray-700"
           >
             <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-48 -translate-x-1/2 rounded-full bg-blue-600/40 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-16 left-1/2 h-32 w-48 -translate-x-1/2 rounded-full bg-orange-600/30 blur-3xl" />
@@ -133,7 +133,7 @@ export default function Home() {
             <h3 className="relative text-2xl font-medium text-white">
               {feature.title}
             </h3>
-            <p className="relative mt-3 text-sm text-amber-100/70">
+            <p className="relative mt-4 max-w-xs text-sm text-amber-100/70">
               {feature.description}
             </p>
           </div>
