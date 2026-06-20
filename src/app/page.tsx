@@ -3,19 +3,24 @@ import { Check } from "lucide-react";
 
 const features = [
   {
-    title: "Gestiona campañas",
+    title: "Diseño Web",
     description:
-      "Crea, organiza y da seguimiento a todas tus campañas de marketing desde un solo panel.",
+      "Creamos páginas web atractivas y funcionales que reflejan la identidad de tu marca y mejoran la experiencia del usuario.",
   },
   {
-    title: "Acceso seguro",
+    title: "SEO",
     description:
-      "Cada cuenta protegida con correo y contraseña, para que tu información esté a salvo.",
+      "Optimizamos tu web para mejorar su visibilidad en Google, aumentando el tráfico orgánico y las conversiones.",
   },
   {
-    title: "Resultados claros",
+    title: "Redes Sociales",
     description:
-      "Visualiza el estado de tus campañas: borrador, activa o finalizada, en cualquier momento.",
+      "Te ayudamos a tener unas redes sociales profesionales ya sea Instagram, Facebook o Tik Tok.",
+  },
+  {
+    title: "SEM",
+    description:
+      "Hacemos que tu web obtenga más visibilidad y clientes a través de Google Ads.",
   },
 ];
 
@@ -114,17 +119,22 @@ export default function Home() {
 
       <section
         id="funciones"
-        className="relative z-10 grid gap-6 px-6 py-16 sm:grid-cols-3 sm:px-12"
+        className="relative z-10 grid gap-6 px-6 py-16 sm:grid-cols-2 sm:px-12"
       >
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="rounded-2xl border border-gray-800 bg-gray-950 p-6 transition-transform hover:-translate-y-1 hover:border-gray-700"
+            className="relative overflow-hidden rounded-2xl border border-gray-800 bg-black p-10 text-center transition-transform hover:-translate-y-1 hover:border-gray-700"
           >
-            <h3 className="text-lg font-semibold text-white">
+            <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-48 -translate-x-1/2 rounded-full bg-blue-600/40 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-16 left-1/2 h-32 w-48 -translate-x-1/2 rounded-full bg-orange-600/30 blur-3xl" />
+
+            <h3 className="relative text-2xl font-medium text-white">
               {feature.title}
             </h3>
-            <p className="mt-2 text-sm text-gray-400">{feature.description}</p>
+            <p className="relative mt-3 text-sm text-amber-100/70">
+              {feature.description}
+            </p>
           </div>
         ))}
       </section>
