@@ -101,6 +101,7 @@ export default function Home() {
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 -z-10 bg-black/40" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-b from-transparent to-black" />
 
         <span className="mb-4 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-gray-300 backdrop-blur-sm">
           Marketing impulsado por datos
