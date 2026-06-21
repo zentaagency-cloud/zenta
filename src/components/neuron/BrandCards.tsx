@@ -85,8 +85,10 @@ const textareaClass = `${inputClass} resize-none`;
 
 export default function BrandCards({
   initialProfile,
+  canEdit = false,
 }: {
   initialProfile?: Partial<BrandProfileData> | null;
+  canEdit?: boolean;
 }) {
   const merged: BrandProfileData = {
     ...defaults,
@@ -153,34 +155,35 @@ export default function BrandCards({
           </h2>
         </div>
 
-        {editing ? (
-          <div className="flex items-center gap-2">
-            {error && <span className="text-xs text-red-600">{error}</span>}
+        {canEdit &&
+          (editing ? (
+            <div className="flex items-center gap-2">
+              {error && <span className="text-xs text-red-600">{error}</span>}
+              <button
+                onClick={cancelEditing}
+                className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+              >
+                <X className="h-3.5 w-3.5" />
+                Cancelar
+              </button>
+              <button
+                onClick={handleSave}
+                disabled={saving}
+                className="flex items-center gap-1 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
+              >
+                <Check className="h-3.5 w-3.5" />
+                {saving ? "Guardando..." : "Guardar cambios"}
+              </button>
+            </div>
+          ) : (
             <button
-              onClick={cancelEditing}
-              className="flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+              onClick={startEditing}
+              className="flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
             >
-              <X className="h-3.5 w-3.5" />
-              Cancelar
+              <Pencil className="h-3.5 w-3.5" />
+              Editar
             </button>
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="flex items-center gap-1 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
-            >
-              <Check className="h-3.5 w-3.5" />
-              {saving ? "Guardando..." : "Guardar cambios"}
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={startEditing}
-            className="flex items-center gap-1.5 rounded-lg border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
-          >
-            <Pencil className="h-3.5 w-3.5" />
-            Editar
-          </button>
-        )}
+          ))}
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

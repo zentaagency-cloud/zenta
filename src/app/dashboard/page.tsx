@@ -9,10 +9,16 @@ export default async function DashboardPage() {
   const session = await auth();
   const user = session!.user;
 
-  const [brandProfile, dbUser] = await Promise.all([
-    prisma.brandProfile.findUnique({ where: { userId: user.id } }),
+  const [adminUser, dbUser] = await Promise.all([
+    prisma.user.findFirst({ where: { role: "admin" }, orderBy: { createdAt: "asc" } }),
     prisma.user.findUnique({ where: { id: user.id } }),
   ]);
+
+  const brandProfile = adminUser
+    ? await prisma.brandProfile.findUnique({ where: { userId: adminUser.id } })
+    : null;
+
+  const isAdmin = dbUser?.role === "admin";
 
   const pendingCount =
     dbUser?.role === "admin"
@@ -41,7 +47,7 @@ export default async function DashboardPage() {
       <PendingApprovalsBanner count={pendingCount} />
       <HeroHeader user={user} />
       <QuickActions />
-      <BrandCards initialProfile={brandProfileData} />
+      <BrandCards initialProfile={brandProfileData} canEdit={isAdmin} />
     </>
   );
 }
