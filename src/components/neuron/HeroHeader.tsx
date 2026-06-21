@@ -37,7 +37,7 @@ export default function HeroHeader({ user }: { user?: HeroUser }) {
               </span>
             </div>
             <p className="mt-1 text-sm text-blue-100">
-              Consultoría y Desarrollo de IA Agéntica
+              Bienvenido de nuevo, {user?.name || user?.email || "Usuario"}
             </p>
             <button className="mt-3 rounded-lg bg-white px-3.5 py-1.5 text-xs font-semibold text-blue-700 shadow-sm transition-transform hover:scale-[1.03] hover:shadow-md">
               Gestionar plan
