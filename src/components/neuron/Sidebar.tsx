@@ -105,10 +105,10 @@ export default function Sidebar({
       {/* Logo */}
       <div className="mb-8 flex items-center gap-2 px-2">
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-500 text-sm font-bold text-white shadow-md shadow-blue-500/30">
-          N
+          Z
         </div>
         <div>
-          <p className="text-sm font-semibold text-white">Neuron Hybrid</p>
+          <p className="text-sm font-semibold text-white">Zenta</p>
         </div>
         <span className="ml-auto rounded-full bg-blue-500/10 px-2 py-0.5 text-[11px] font-semibold text-blue-400">
           Free

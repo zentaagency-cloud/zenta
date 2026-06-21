@@ -35,7 +35,7 @@ export default async function DashboardLayout({
         <div className="mx-auto max-w-6xl space-y-8">
           <div className="flex items-center justify-between lg:hidden">
             <span className="text-sm font-semibold text-white">
-              Neuron Hybrid
+              Zenta
             </span>
             <MobileSidebarToggle user={user} pendingCount={pendingCount} />
           </div>

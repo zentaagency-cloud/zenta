@@ -25,12 +25,12 @@ export default function HeroHeader({ user }: { user?: HeroUser }) {
       <div className="relative flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <div className="flex items-center gap-4">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-xl font-bold text-white ring-1 ring-white/25 backdrop-blur-sm">
-            N
+            Z
           </div>
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h1 className="text-xl font-bold text-white sm:text-2xl">
-                Neuron Hybrid
+                Zenta
               </h1>
               <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-semibold text-white backdrop-blur-sm">
                 Free
